@@ -166,5 +166,14 @@ Benefício: Redução de acoplamento, permitindo maior reutilização de código
 
 Este projeto demonstra como os princípios SOLID podem ser aplicados na prática, resultando em um sistema bem estruturado, de fácil manutenção e flexível para futuras mudanças. Esses princípios foram essenciais para garantir a modularidade e clareza do código.
 
+---
+
+## Diagrama de Atividades
+
 ![Diagrama de Atv drawio](https://github.com/user-attachments/assets/16e2ee99-dfa3-47f0-95bb-e19b2706e806)
+
+---
+
+## Diagrama UML
+
 ![projeto final poopng](https://github.com/user-attachments/assets/6e26a3eb-26b4-4c21-bbbb-fc1d155701ef)
