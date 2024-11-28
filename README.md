@@ -21,6 +21,71 @@ Este projeto é um sistema modular que combina funcionalidades para gerenciar um
 
 ---
 
+## Estrutura do Projeto
+
+### Pacote de Restaurante
+- PedidoService: Gerencia as operações relacionadas a pedidos, como criação, cancelamento e geração de relatórios.
+- Mesa: Representa as mesas do restaurante e controla seu estado (disponível ou ocupada). Também gerencia os pedidos associados.
+- Pedido: Armazena os itens de um pedido e calcula o total. Permite associar um cliente para aplicação de descontos. Caso tenha uma pessoa cadastrada em um clínica médica / evento, ela recebe desconto no restaurante de 10%.
+- ItemDoPedido: Classe abstrata para representar itens genéricos. É estendida por **Prato, **Bebida e Sobremesa para especializar tipos de itens.
+- SistemaRestaurante: Controla a interação geral com o restaurante, integrando mesas e pedidos.
+
+### Pacote de Clínica Médica
+- ClinicaMedica: Coordena a operação da clínica médica, incluindo cadastro de pacientes, médicos e marcação de consultas.
+- Paciente: Representa os dados de um paciente, como nome, CPF e idade.
+- Medico: Gerencia os dados de um médico, incluindo especialidade e disponibilidade.
+- Consulta: Detalha uma consulta médica entre um médico e um paciente, armazenando informações como data e status (cancelada ou ativa).
+
+### Pacote de Eventos
+- SistemaEventos: Controla o gerenciamento de eventos, incluindo cadastro de eventos e participantes.
+- Evento: Classe base para diferentes tipos de eventos (Seminário, **Workshop, **Conferência). Define propriedades gerais, como local e data.
+- Seminario, **Workshop e Conferencia: Estendem a funcionalidade de **Evento, adicionando restrições específicas, como limites de participantes.
+- Participante: Representa uma pessoa cadastrada em um evento.
+- Local: Define as características do local do evento, como capacidade e endereço.
+
+---
+
+## Exemplos de Perguntas e Decisões Baseadas no Código
+
+### Restaurante
+1. Quantos pedidos foram realizados na mesa X?
+   - Função que responde: PedidoService.gerarRelatorio().
+   - Tomada de decisão: Ajuda a identificar mesas mais utilizadas, otimizando a alocação e oferta de serviços.
+
+2. Qual foi o total de vendas do restaurante?
+   - Função que responde: PedidoService.gerarRelatorio().
+   - Tomada de decisão: Avaliar o desempenho financeiro do restaurante.
+
+### Clínica Médica
+3. Quantas consultas o paciente com CPF X realizou?
+   - Função que responde: listarConsultasPacientes().
+   - Tomada de decisão: Monitorar a frequência de consultas para identificar pacientes que podem necessitar de acompanhamento mais intenso.
+
+4. Quais médicos realizaram consultas em uma data específica?
+   - Função que responde: gerarRelatorioPorData().
+   - Tomada de decisão: Analisar a eficiência do quadro médico e planejar escalas futuras.
+
+5. Qual especialidade é mais procurada?
+   - Função que responde: gerarRelatorioPorEspecialidade().
+   - Tomada de decisão: Realocar médicos ou contratar mais profissionais para atender à demanda.
+
+### Eventos
+6. Quantos participantes estão inscritos no evento X?
+   - Função que responde: Evento.gerarRelatorio().
+   - Tomada de decisão: Verificar se o evento atingiu a capacidade mínima ou máxima para confirmação ou reestruturação.
+
+7. Existe um participante com o e-mail Y no evento X?
+   - Função que responde: isParticipanteCadastrado().
+   - Tomada de decisão: Garantir a organização da lista de participantes, evitando duplicidades.
+
+8. Qual local foi mais utilizado para eventos?
+   - Função que responde: Requer análise manual combinando **SistemaEventos e propriedades de Local.
+   - Tomada de decisão: Identificar locais populares para planejar futuros eventos.
+
+
+
+---
+
 ## Princípios SOLID Aplicados
 
 ### 1. Princípio da Responsabilidade Única (SRP)
@@ -88,27 +153,6 @@ Benefício: Redução de acoplamento, permitindo maior reutilização de código
 
 ---
 
-## Estrutura do Projeto
-
-O projeto é dividido em diferentes pacotes e classes, como mostrado abaixo:
-
-### 1. Pacote de Restaurante
-- PedidoService: Gerencia os pedidos, incluindo criação, cancelamento e geração de relatórios.
-- Mesa: Representa uma mesa no restaurante e seu status (disponível ou ocupada).
-- Pedido: Armazena informações dos pedidos realizados.
-- ItemDoPedido (e subclasses): Define os tipos de itens disponíveis no restaurante.
-
-### 2. Pacote de Clínica Médica
-- ClinicaMedica: Gerencia o fluxo de pacientes, médicos e consultas.
-- Consulta: Representa uma consulta médica.
-- Paciente e Medico: Armazenam os detalhes de cada pessoa no sistema.
-
-### 3. Pacote de Eventos
-- SistemaEventos: Gerencia os eventos e seus participantes.
-- Evento (e subclasses): Define os diferentes tipos de eventos, como seminários, workshops e conferências.
-- Participante: Representa uma pessoa cadastrada em um evento.
-
----
 
 ## Como Executar
 
@@ -121,3 +165,6 @@ O projeto é dividido em diferentes pacotes e classes, como mostrado abaixo:
 ## Conclusão
 
 Este projeto demonstra como os princípios SOLID podem ser aplicados na prática, resultando em um sistema bem estruturado, de fácil manutenção e flexível para futuras mudanças. Esses princípios foram essenciais para garantir a modularidade e clareza do código.
+
+![Diagrama de Atv drawio](https://github.com/user-attachments/assets/16e2ee99-dfa3-47f0-95bb-e19b2706e806)
+![projeto final poopng](https://github.com/user-attachments/assets/6e26a3eb-26b4-4c21-bbbb-fc1d155701ef)
