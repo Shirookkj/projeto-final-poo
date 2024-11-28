@@ -1,4 +1,5 @@
 # Sistema de Gerenciamento
+Equipe: André Mota, Ana Pellegrino, Artur Uchôa, João Magalhães e Isabel Lugon
 
 Este projeto é um sistema modular que combina funcionalidades para gerenciar um restaurante, uma clínica médica e eventos. O código utiliza princípios de design de software para criar um sistema extensível, reutilizável e fácil de manter.
 
